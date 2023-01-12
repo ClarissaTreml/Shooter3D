@@ -1,0 +1,25 @@
+behaviors:
+  Shooter:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 2048
+      buffer_size: 20480
+      learning_rate: 0.0002
+      beta: 0.003
+      epsilon: 0.15
+      lambd: 0.92
+      learning_rate_schedule: constant
+    network_settings:
+      normalize: false
+      hidden_units: 128
+      num_layers: 3
+    reward_signals:
+      extrinsic:
+        gamma: 0.96
+        strength: 1.0
+    max_steps: 20000000
+    time_horizon: 1000
+    summary_freq: 20000
+    
+
+
