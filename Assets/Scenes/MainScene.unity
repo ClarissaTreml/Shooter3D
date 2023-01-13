@@ -1253,7 +1253,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838757750}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -1.7646154, y: 0.12939417, z: 4.0468936}
+  m_LocalPosition: {x: 2.16, y: 0.12939417, z: 6.16}
   m_LocalScale: {x: 0.5, y: 1.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1371,7 +1371,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 838757750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27fcb28b810f6784bbd14c250ab53b60, type: 3}
+  m_Script: {fileID: 11500000, guid: 4efab09b33a7bba46a4075b31550b12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &963194225
@@ -1478,8 +1478,6 @@ GameObject:
   - component: {fileID: 1104496580}
   - component: {fileID: 1104496584}
   - component: {fileID: 1104496578}
-  - component: {fileID: 1104496581}
-  - component: {fileID: 1104496585}
   m_Layer: 9
   m_Name: Agent
   m_TagString: agent
@@ -1558,7 +1556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104496571}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7246153, y: 0.12939417, z: -0.12609398}
+  m_LocalPosition: {x: -7.5, y: 0.12939417, z: -3.48}
   m_LocalScale: {x: 0.5, y: 1.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1602,6 +1600,9 @@ MonoBehaviour:
   projectile: {fileID: 3831007211605654436, guid: 742878c0fd99d2b43beed2e4851f8ca3, type: 3}
   minStepsBetweenShots: 50
   damage: 100
+  moveSpeed: 12
+  controller: {fileID: 1104496582}
+  speed: 6
 --- !u!114 &1104496579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,18 +1661,6 @@ MonoBehaviour:
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0.13
   m_EndVerticalOffset: 0.13
---- !u!114 &1104496581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104496571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27fcb28b810f6784bbd14c250ab53b60, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!143 &1104496582
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1681,7 +1670,7 @@ CharacterController:
   m_GameObject: {fileID: 1104496571}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Height: 1
   m_Radius: 0.5
@@ -1740,22 +1729,6 @@ MonoBehaviour:
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0.13
   m_EndVerticalOffset: 0.13
---- !u!114 &1104496585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104496571}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88b6042bc9a5d4aa58d931eae49442e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
 --- !u!114 &1104496586
 MonoBehaviour:
   m_ObjectHideFlags: 0

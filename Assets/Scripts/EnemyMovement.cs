@@ -1,8 +1,8 @@
-using System.Collections;
+/* using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AgentMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public CharacterController controller;
 
@@ -21,26 +21,26 @@ public class AgentMovement : MonoBehaviour
         }
     }
 } 
+ */
 
-
-/* using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AgentMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
-    NavMeshAgent agent;
+    NavMeshAgent Enemy;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        Enemy = GetComponent<NavMeshAgent>();
         SetRandomDestination();
     }
 
     void Update()
     {
-        if (agent.remainingDistance < 0.5f)
+        if (Enemy.remainingDistance < 0.5f)
         {
             SetRandomDestination();
         }
@@ -54,7 +54,6 @@ public class AgentMovement : MonoBehaviour
         NavMeshHit hit;
         NavMesh.SamplePosition(randomDirection, out hit, 20, 1);
         Vector3 finalPosition = hit.position;
-        agent.SetDestination(finalPosition);
+        Enemy.SetDestination(finalPosition);
     }
 }
- */

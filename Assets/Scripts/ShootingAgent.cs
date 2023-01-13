@@ -14,6 +14,7 @@ public class ShootingAgent : Agent
     public Projectile projectile;
     public int minStepsBetweenShots = 50;
     public int damage = 100;
+    public float moveSpeed = 12;
 
     private bool shotAvailable = true;
     private int stepsUntilShotIsAvaliable = 0;
@@ -21,6 +22,8 @@ public class ShootingAgent : Agent
     //private Rigidbody rigidbodyAgent;
     NavMeshAgent rigidbodyAgent;
 
+    public CharacterController controller;
+    public float speed = 6f;
     
     
     private void Shoot()
@@ -49,7 +52,6 @@ public class ShootingAgent : Agent
         stepsUntilShotIsAvaliable = minStepsBetweenShots;
     }
 
-
     private void FixedUpdate()
     {
         if(!shotAvailable)
@@ -59,9 +61,8 @@ public class ShootingAgent : Agent
             if(stepsUntilShotIsAvaliable <= 0)
             {
                 shotAvailable = true;
-  
             }
-        }   
+        } 
     }
 
    public override void OnActionReceived(ActionBuffers actions)
@@ -70,6 +71,7 @@ public class ShootingAgent : Agent
         {
             Shoot();
         }
+        rigidbodyAgent.velocity = new Vector3(actions.ContinuousActions[2] * speed, 0f, actions.ContinuousActions[3] * speed);
    }
 
    public override void CollectObservations(VectorSensor sensor)
@@ -77,7 +79,6 @@ public class ShootingAgent : Agent
         base.CollectObservations(sensor);
         /* sensor.AddObservation(rigidbodyAgent.velocity.x);
         sensor.AddObservation(rigidbodyAgent.velocity.y);
-
         sensor.AddObservation(shotAvailable); */
    }
 
@@ -85,17 +86,15 @@ public class ShootingAgent : Agent
    {
         startingPosition = transform.position;
         //rigidbodyAgent = GetComponent<Rigidbody>();
-        rigidbodyAgent = GetComponent<NavMeshAgent>();
-        
+        rigidbodyAgent = GetComponent<NavMeshAgent>();  
    }
 
    public override void Heuristic(in ActionBuffers actionsOut)
    {
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
         continuousActions[0] = Input.GetKey(KeyCode.P) ? 1f : 0f;
-        //continuousActions[2] = Input.GetAxis("Horizontal");
-        
-        //continuousActions[3] = Input.GetAxis("Vertical");
+        continuousActions[2] = Input.GetAxis("Horizontal");
+        continuousActions[3] = Input.GetAxis("Vertical");
    }
 
    public override void OnEpisodeBegin()
@@ -104,7 +103,6 @@ public class ShootingAgent : Agent
         transform.position = startingPosition;
         rigidbodyAgent.velocity = Vector3.zero;
         shotAvailable = true;
-
    }
 
    private void Reset()
