@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class Enemy : MonoBehaviour
 {
     public int startingHealth = 100;
-    //public float speed = 1f;
+    
     public float randomRangeX_Pos = 0f;
     public float randomRangeX_Neg = 0f;
     public float randomRangeZ_Pos = 0f;
@@ -18,23 +18,23 @@ public class Enemy : MonoBehaviour
     private int CurrentHealth;
     private Vector3 StartPosition;
 
-    //public ShootingAgent Agent;
-    //private NavMeshAgent navAgent;
+    NavMeshAgent enemyAgent;
 
 
     private void Start()
     {
+        enemyAgent = GetComponent<NavMeshAgent>();
         StartPosition = transform.position;
         CurrentHealth = startingHealth;
-
-        //navAgent = GetComponent<NavMeshAgent>();
-        //navAgent.speed = speed;
     }
 
-    /* private void FixedUpdate()
+    void Update()
     {
-        navAgent.destination = Agent.transform.position;
-    } */
+        if (enemyAgent.remainingDistance < 0.5f)
+        {
+            SetRandomDestination();
+        }
+    }
 
     public void GetShot(int damage, ShootingAgent shooter)
     {
@@ -61,8 +61,19 @@ public class Enemy : MonoBehaviour
     public void Respawn()
     {
         CurrentHealth = startingHealth;
-        //navAgent.speed = speed;
         transform.position = new Vector3(StartPosition.x + Random.Range(randomRangeX_Neg, randomRangeX_Pos), StartPosition.y, StartPosition.z + Random.Range(randomRangeZ_Neg, randomRangeZ_Pos));
+        SetRandomDestination();
+    }
+
+    void SetRandomDestination()
+    {
+        //20 -->  walkRadius
+        Vector3 randomDirection = Random.insideUnitSphere * 20;
+        randomDirection += transform.position;
+        NavMeshHit hit;
+        NavMesh.SamplePosition(randomDirection, out hit, 20, 1);
+        Vector3 finalPosition = hit.position;
+        enemyAgent.SetDestination(finalPosition);
     }
 
        
