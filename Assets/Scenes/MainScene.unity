@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 161849177}
   - component: {fileID: 161849176}
   - component: {fileID: 161849175}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SubGun1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 211772845}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 313330278}
   - component: {fileID: 313330277}
   - component: {fileID: 313330276}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &574681033
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,9 +1014,9 @@ GameObject:
   - component: {fileID: 838757753}
   - component: {fileID: 838757752}
   - component: {fileID: 838757756}
-  m_Layer: 10
-  m_Name: Enemy
-  m_TagString: enemy
+  m_Layer: 9
+  m_Name: Agent
+  m_TagString: agent
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1242,9 +1242,9 @@ GameObject:
   - component: {fileID: 1104496580}
   - component: {fileID: 1104496584}
   - component: {fileID: 1104496578}
-  m_Layer: 9
-  m_Name: Agent
-  m_TagString: agent
+  m_Layer: 10
+  m_Name: Enemy
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1389,7 +1389,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 5022602860645237092, guid: 3731dc4eda400ad4ca7717f3ed2d2fc4, type: 3}
+  m_Model: {fileID: 0}
   m_InferenceDevice: 3
   m_BehaviorType: 0
   m_BehaviorName: Shooter
@@ -1411,7 +1411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SensorName: RaysInFront
   m_DetectableTags:
-  - enemy
+  - agent
   - wall
   m_RaysPerDirection: 8
   m_MaxRayDegrees: 45
@@ -1479,7 +1479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SensorName: RaysSideAndBack
   m_DetectableTags:
-  - enemy
+  - agent
   - wall
   m_RaysPerDirection: 6
   m_MaxRayDegrees: 169
@@ -1616,7 +1616,7 @@ GameObject:
   - component: {fileID: 1326121572}
   - component: {fileID: 1326121571}
   - component: {fileID: 1326121570}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: SubGun2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

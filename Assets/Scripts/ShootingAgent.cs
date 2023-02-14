@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents;
@@ -19,8 +19,7 @@ public class ShootingAgent : Agent
     private bool shotAvailable = true;
     private int stepsUntilShotIsAvaliable = 0;
     private Vector3 startingPosition;
-    //private Rigidbody rigidbodyAgent;
-    NavMeshAgent rigidbodyAgent;
+    NavMeshAgent enemyAgent;
 
     public CharacterController controller;
     public float speed = 6f;
@@ -30,7 +29,7 @@ public class ShootingAgent : Agent
     {
         if (!shotAvailable) return;
 
-        var layerMask = 1 << LayerMask.NameToLayer("Enemy");
+        var layerMask = 1 << LayerMask.NameToLayer("Agent");
         var direction = transform.forward;
         
         var spawnedProjectile = Instantiate(projectile, bulletSpawnPoint.position, Quaternion.Euler(0f, -90f, 0f));
@@ -41,7 +40,7 @@ public class ShootingAgent : Agent
 
         if(Physics.Raycast(bulletSpawnPoint.position, direction, out var hit, 200f, layerMask))
         {
-            hit.transform.GetComponent<Enemy>().GetShot(damage, this);
+            hit.transform.GetComponent<PlayerAgent>().GetShot(damage, this);
         }
         else
         {
@@ -71,22 +70,18 @@ public class ShootingAgent : Agent
         {
             Shoot();
         }
-        rigidbodyAgent.velocity = new Vector3(actions.ContinuousActions[2] * speed, 0f, actions.ContinuousActions[3] * speed);
+        enemyAgent.velocity = new Vector3(actions.ContinuousActions[2] * speed, 0f, actions.ContinuousActions[3] * speed);
    }
 
    public override void CollectObservations(VectorSensor sensor)
    {
         base.CollectObservations(sensor);
-        /* sensor.AddObservation(rigidbodyAgent.velocity.x);
-        sensor.AddObservation(rigidbodyAgent.velocity.y);
-        sensor.AddObservation(shotAvailable); */
    }
 
    public override void Initialize()
    {
+        enemyAgent = GetComponent<NavMeshAgent>(); 
         startingPosition = transform.position;
-        //rigidbodyAgent = GetComponent<Rigidbody>();
-        rigidbodyAgent = GetComponent<NavMeshAgent>();  
    }
 
    public override void Heuristic(in ActionBuffers actionsOut)
@@ -101,7 +96,7 @@ public class ShootingAgent : Agent
    {
         Debug.Log("Episode Begin");
         transform.position = startingPosition;
-        rigidbodyAgent.velocity = Vector3.zero;
+        enemyAgent.velocity = Vector3.zero;
         shotAvailable = true;
    }
 
@@ -118,7 +113,7 @@ public class ShootingAgent : Agent
 
    private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("enemy"))
+        if (other.gameObject.CompareTag("agent"))
         {
             AddReward(-1f);
             EndEpisode();
@@ -126,3 +121,4 @@ public class ShootingAgent : Agent
     }
 
 }
+

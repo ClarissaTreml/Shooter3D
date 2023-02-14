@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-public class Enemy : MonoBehaviour
+public class PlayerAgent : MonoBehaviour
 {
     public int startingHealth = 100;
     
@@ -18,19 +18,19 @@ public class Enemy : MonoBehaviour
     private int CurrentHealth;
     private Vector3 StartPosition;
 
-    NavMeshAgent enemyAgent;
+    NavMeshAgent playerAgent;
 
 
     private void Start()
     {
-        enemyAgent = GetComponent<NavMeshAgent>();
+        playerAgent = GetComponent<NavMeshAgent>();
         StartPosition = transform.position;
         CurrentHealth = startingHealth;
     }
 
     void Update()
     {
-        if (enemyAgent.remainingDistance < 0.5f)
+        if (playerAgent.remainingDistance < 0.5f)
         {
             SetRandomDestination();
         }
@@ -73,8 +73,14 @@ public class Enemy : MonoBehaviour
         NavMeshHit hit;
         NavMesh.SamplePosition(randomDirection, out hit, 20, 1);
         Vector3 finalPosition = hit.position;
-        enemyAgent.SetDestination(finalPosition);
+        playerAgent.SetDestination(finalPosition);
     }
 
        
-}
+} 
+
+
+
+
+
+
