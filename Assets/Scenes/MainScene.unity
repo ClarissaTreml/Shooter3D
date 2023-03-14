@@ -559,7 +559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &574681033
 Transform:
   m_ObjectHideFlags: 0
@@ -1014,6 +1014,7 @@ GameObject:
   - component: {fileID: 838757753}
   - component: {fileID: 838757752}
   - component: {fileID: 838757756}
+  - component: {fileID: 838757757}
   m_Layer: 9
   m_Name: Agent
   m_TagString: agent
@@ -1128,7 +1129,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838757750}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 919071f6dd6f345269e8ec1c2edb7335, type: 3}
   m_Name: 
@@ -1138,6 +1139,25 @@ MonoBehaviour:
   randomRangeX_Neg: 0
   randomRangeZ_Pos: 0
   randomRangeZ_Neg: 0
+--- !u!114 &838757757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838757750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b02e226e0bda64f9638eac5c6a798e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  randomRangeX_Pos: 0
+  randomRangeX_Neg: 0
+  randomRangeZ_Pos: 0
+  randomRangeZ_Neg: 0
+  playerAgent: {fileID: 838757752}
+  Agent: {fileID: 1104496575}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,7 +1409,7 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: e997b1deeebfa5944a4caffa9511a762, type: 3}
   m_InferenceDevice: 3
   m_BehaviorType: 0
   m_BehaviorName: Shooter

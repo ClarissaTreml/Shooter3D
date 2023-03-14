@@ -1,0 +1,65 @@
+{
+    "Shooter": {
+        "checkpoints": [
+            {
+                "steps": 499000,
+                "file_path": "results\\sacnight\\Shooter\\Shooter-499000.onnx",
+                "reward": null,
+                "creation_time": 1676419997.3648956,
+                "auxillary_file_paths": [
+                    "results\\sacnight\\Shooter\\Shooter-499000.pt"
+                ]
+            },
+            {
+                "steps": 999000,
+                "file_path": "results\\sacnight\\Shooter\\Shooter-999000.onnx",
+                "reward": null,
+                "creation_time": 1676425721.2138875,
+                "auxillary_file_paths": [
+                    "results\\sacnight\\Shooter\\Shooter-999000.pt"
+                ]
+            },
+            {
+                "steps": 1499000,
+                "file_path": "results\\sacnight\\Shooter\\Shooter-1499000.onnx",
+                "reward": null,
+                "creation_time": 1676431438.4371126,
+                "auxillary_file_paths": [
+                    "results\\sacnight\\Shooter\\Shooter-1499000.pt"
+                ]
+            },
+            {
+                "steps": 1999000,
+                "file_path": "results\\sacnight\\Shooter\\Shooter-1999000.onnx",
+                "reward": null,
+                "creation_time": 1676437156.062109,
+                "auxillary_file_paths": [
+                    "results\\sacnight\\Shooter\\Shooter-1999000.pt"
+                ]
+            },
+            {
+                "steps": 2265000,
+                "file_path": "results\\sacnight\\Shooter\\Shooter-2265000.onnx",
+                "reward": null,
+                "creation_time": 1676440212.5732648,
+                "auxillary_file_paths": [
+                    "results\\sacnight\\Shooter\\Shooter-2265000.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 2265000,
+            "file_path": "results\\sacnight\\Shooter.onnx",
+            "reward": null,
+            "creation_time": 1676440212.5732648,
+            "auxillary_file_paths": [
+                "results\\sacnight\\Shooter\\Shooter-2265000.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cu117"
+    }
+}

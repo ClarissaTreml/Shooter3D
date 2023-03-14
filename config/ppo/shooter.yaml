@@ -4,7 +4,7 @@ behaviors:
     hyperparameters:
       batch_size: 2048
       buffer_size: 20480
-      learning_rate: 3e-4
+      learning_rate: 0.0002
       beta: 0.003
       epsilon: 0.15
       lambd: 0.92
@@ -20,6 +20,7 @@ behaviors:
       curiosity:
           strength: 0.01
           gamma: 0.99
+          encoding_size: 128
     max_steps: 20000000
     time_horizon: 1000
     summary_freq: 20000

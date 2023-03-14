@@ -1,0 +1,38 @@
+{
+    "Shooter": {
+        "checkpoints": [
+            {
+                "steps": 499395,
+                "file_path": "results\\attackshooternnm\\Shooter\\Shooter-499395.onnx",
+                "reward": 0.927400004863739,
+                "creation_time": 1676498005.4526472,
+                "auxillary_file_paths": [
+                    "results\\attackshooternnm\\Shooter\\Shooter-499395.pt"
+                ]
+            },
+            {
+                "steps": 577453,
+                "file_path": "results\\attackshooternnm\\Shooter\\Shooter-577453.onnx",
+                "reward": 0.9538000052173933,
+                "creation_time": 1676498620.4935973,
+                "auxillary_file_paths": [
+                    "results\\attackshooternnm\\Shooter\\Shooter-577453.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 577453,
+            "file_path": "results\\attackshooternnm\\Shooter.onnx",
+            "reward": 0.9538000052173933,
+            "creation_time": 1676498620.4935973,
+            "auxillary_file_paths": [
+                "results\\attackshooternnm\\Shooter\\Shooter-577453.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.13.1+cu117"
+    }
+}
